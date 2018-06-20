@@ -33,7 +33,12 @@ Usage flow goes like this :
     api = DssReuters::Api.new
     req = api.extract_with_isin "KE1000001402"
     req.get_result
+    req.status # check if :completed. If :in_progress, check again
     req.result # Check result and get again if necessary
+
+Default request fires a Composite extraction request. You can customize your request like :
+
+    req = api.extract_with_isin "KE1000001402", ["Life High", "Life Low", "Year High", "Year Low"], :intraday_pricing
 
 ## Contributing
 
