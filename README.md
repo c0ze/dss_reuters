@@ -39,6 +39,7 @@ Usage flow goes like this :
 Default request fires a Composite extraction request. You can customize your request like :
 
     req = api.extract_with_isin "KE1000001402", ["Life High", "Life Low", "Year High", "Year Low"], :intraday_pricing
+    req = api.extract_with_isin "KE1000001402", ["Net Change - Close Price - 1 Day"], :technical_indicators
 
 ## Contributing
 
