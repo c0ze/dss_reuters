@@ -60,14 +60,15 @@ module DssReuters
   class OnDemandExtract
     include HTTParty
     base_uri Config::BASE_URI
-    attr_reader :result
+    attr_reader :result, :status
 
     def camelize(str)
       str.to_s.split('_').collect(&:capitalize).join
     end
 
-    def initialize(session, fields, identifiers, type=:composite)
+    def initialize(session, fields, identifiers, type)
       @session = session
+      @status = :init
       path = "/RestApi/v1/Extractions/ExtractWithNotes"
       options = {
         headers: {
@@ -90,19 +91,33 @@ module DssReuters
         }.to_json
       }
       resp = self.class.post path, options
-      @location = resp["location"]
+      if check_status(resp)
+        @location = resp["location"]
+      end
+      pp resp
       @session.logger.debug resp
     end
 
+    def check_status(resp)
+      if resp["status"] == "InProgress"
+        @status = :in_progress
+      else
+        @status = :complete
+      end
+    end
+
     def get_result
-      options = {
-        headers: {
-          "Prefer" => "respond-async; wait=5",
-          "Authorization" => "Token #{@session.token}"
+      if @status == :in_progress
+        options = {
+          headers: {
+            "Prefer" => "respond-async; wait=5",
+            "Authorization" => "Token #{@session.token}"
+          }
         }
-      }
-      @result = self.class.get @location, options
-      @session.logger.debug @result
+        @result = self.class.get @location, options
+        check_status @result
+        @session.logger.debug @result
+      end
     end
   end
 
@@ -115,7 +130,7 @@ module DssReuters
       @user = User.new(@session)
     end
 
-    def extract_with_isin(isin_code, fields=nil)
+    def extract_with_isin(isin_code, fields=nil, type=:composite)
       fields ||= [
         "Close Price",
         "Contributor Code Description",
@@ -133,7 +148,7 @@ module DssReuters
          "IdentifierType" => "Isin"
         }
       ]
-      OnDemandExtract.new(@session, fields, identifiers)
+      OnDemandExtract.new(@session, fields, identifiers, type)
     end
   end
 end
