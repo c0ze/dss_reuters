@@ -1,3 +1,4 @@
+require "dotenv/load"
 require "logger"
 require "httparty"
 require "dss_reuters/version"
@@ -60,42 +61,52 @@ module DssReuters
   class OnDemandExtract
     include HTTParty
     base_uri Config::BASE_URI
-    attr_reader :result, :status
+    attr_reader :result
+    attr_accessor :status, :location
 
     def camelize(str)
       str.to_s.split('_').collect(&:capitalize).join
     end
 
-    def initialize(session, fields, identifiers, type)
+    def self.init_with_location(session, location)
+      ins = self.new(session)
+      ins.status = :in_progress
+      ins.location = location
+      ins
+    end
+
+    def initialize(session, identifiers=nil, type=nil, fields=nil, condition=nil)
       @session = session
       @status = :init
       path = "/RestApi/v1/Extractions/ExtractWithNotes"
-      options = {
-        headers: {
-          "Prefer" => "respond-async; wait=5",
-          "Content-Type" => "application/json; odata=minimalmetadata",
-          "Authorization" => "Token #{@session.token}"
-        },
-        body: {
-          "ExtractionRequest" => {
-            "@odata.type" => "#ThomsonReuters.Dss.Api.Extractions.ExtractionRequests.#{camelize(type)}ExtractionRequest",
-            "ContentFieldNames" => fields,
-            "IdentifierList" => {
-              "@odata.type" => "#ThomsonReuters.Dss.Api.Extractions.ExtractionRequests.InstrumentIdentifierList",
-              "InstrumentIdentifiers" => identifiers,
-              "ValidationOptions" => nil,
-              "UseUserPreferencesForValidationOptions" => false
-            },
-            "Condition" => nil
-          }
-        }.to_json
-      }
-      resp = self.class.post path, options
-      if check_status(resp)
-        @location = resp["location"]
+
+      if fields
+        options = {
+          headers: {
+            "Prefer" => "respond-async; wait=5",
+            "Content-Type" => "application/json; odata=minimalmetadata",
+            "Authorization" => "Token #{@session.token}"
+          },
+          body: {
+            "ExtractionRequest" => {
+              "@odata.type" => "#{camelize(type)}ExtractionRequest",
+              "ContentFieldNames" => fields,
+              "IdentifierList" => {
+                "@odata.type" => "InstrumentIdentifierList",
+                "InstrumentIdentifiers" => identifiers,
+                "ValidationOptions" => nil,
+                "UseUserPreferencesForValidationOptions" => false
+              },
+              "Condition" => condition
+            }
+          }.to_json
+        }
+        resp = self.class.post path, options
+        if check_status(resp)
+          @location = resp["location"]
+        end
+        @session.logger.debug resp
       end
-      pp resp
-      @session.logger.debug resp
     end
 
     def check_status(resp)
@@ -117,6 +128,7 @@ module DssReuters
         @result = self.class.get @location, options
         check_status @result
         @session.logger.debug @result
+        @status
       end
     end
   end
@@ -130,7 +142,11 @@ module DssReuters
       @user = User.new(@session)
     end
 
-    def extract_with_isin(isin_code, fields=nil, type=:composite)
+    def extract_with_location(location)
+      OnDemandExtract.init_with_location(@session, location)
+    end
+
+    def extract_with_isin(isin_code, type=:composite, fields=nil, condition=nil)
       fields ||= [
         "Close Price",
         "Contributor Code Description",
@@ -148,7 +164,7 @@ module DssReuters
          "IdentifierType" => "Isin"
         }
       ]
-      OnDemandExtract.new(@session, fields, identifiers, type)
+      OnDemandExtract.new(@session, identifiers, type, fields, condition)
     end
   end
 end

@@ -38,8 +38,9 @@ Usage flow goes like this :
 
 Default request fires a Composite extraction request. You can customize your request like :
 
-    req = api.extract_with_isin "KE1000001402", ["Life High", "Life Low", "Year High", "Year Low"], :intraday_pricing
-    req = api.extract_with_isin "KE1000001402", ["Net Change - Close Price - 1 Day"], :technical_indicators
+    req = api.extract_with_isin "KE1000001402", :intraday_pricing, ["Life High", "Life Low", "Year High", "Year Low"]
+    req = api.extract_with_isin "KE1000001402", :technical_indicators, ["Net Change - Close Price - 1 Day"]
+    req = api.extract_with_isin "KE1000001402", :time_series, ["Close Price", "Trade Date"], {"StartDate" => "2018-01-01", "EndDate" => "2018-08-01"}
 
 ## Contributing
 
