@@ -2,6 +2,8 @@
 
 A simple gem to extract info from DSS Reuters.
 
+[![CircleCI](https://circleci.com/gh/c0ze/dss_reuters.svg?style=svg)](https://circleci.com/gh/c0ze/dss_reuters)
+
 ## Installation
 
 Add this line to your application's Gemfile:
