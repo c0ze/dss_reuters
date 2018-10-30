@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"xxx","Password":"xxx"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.0x066341ce7e201788/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.513.64
+      Date:
+      - Tue, 30 Oct 2018 01:28:46 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcdo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"sample_token"}'
+    http_version: 
+  recorded_at: Tue, 30 Oct 2018 01:28:47 GMT
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotes
+    body:
+      encoding: UTF-8
+      string: '{"ExtractionRequest":{"@odata.type":"CompositeExtractionRequest","ContentFieldNames":["Close
+        Price","Contributor Code Description","Currency Code Description","Dividend
+        Yield","Main Index","Market Capitalization","Market Capitalization - Local
+        Currency","Percent Change - Close Price - 1 Day","Universal Close Price Date"],"IdentifierList":{"@odata.type":"InstrumentIdentifierList","InstrumentIdentifiers":[{"Identifier":"KE1000001402","IdentifierType":"Isin"}],"ValidationOptions":null,"UseUserPreferencesForValidationOptions":false},"Condition":null}}'
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Content-Type:
+      - application/json; odata=minimalmetadata
+      Authorization:
+      - Token sample_token
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Location:
+      - https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066341ce7e301788')
+      Server:
+      - Microsoft-IIS/7.5
+      Status:
+      - InProgress
+      Progress:
+      - ''
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.0x066341ce7e401788/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.513.64
+      Date:
+      - Tue, 30 Oct 2018 01:28:52 GMT
+      Content-Length:
+      - '0'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcdo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Tue, 30 Oct 2018 01:28:53 GMT
+recorded_with: VCR 4.0.0

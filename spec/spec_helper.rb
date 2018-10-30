@@ -99,6 +99,9 @@ RSpec.configure do |config|
 =end
 end
 
+ENV['DSS_USERNAME'] = "test"
+ENV['DSS_PASSWORD'] = "test"
+
 require 'vcr'
 
 VCR.configure do |c|

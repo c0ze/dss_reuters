@@ -41,7 +41,7 @@ http_interactions:
         path=/
     body:
       encoding: UTF-8
-      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"_PxfpjufbS9sBU77xpG1MUiV_e5qzE3Q9UuEe_FeN1DdyczUyu5Hpsp-2aS2KVBcsiDmmJ53rPBImlCt4db72crLIuK0mkoMUaB4ijUNxfflacynHrg-4T_rBhCvZkq22oID3xd7RazQw3FIdNnJWeYhdhlUGNZNJkaiDVL-8-elOBUal04TSLXQfcKjDBl6ghdLVI6o8XTurEnaYkS1lh1zF52uXD1W5xi5dWfhLPC07ZdoAuyM-rH4BCiF5I6nq3KAiRKTVVqpP4CUmX9_VbN7H5k0UAwfZAXMo4LXdWMQ"}'
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"sample_token"}'
     http_version: 
   recorded_at: Mon, 29 Oct 2018 10:16:19 GMT
 recorded_with: VCR 4.0.0
