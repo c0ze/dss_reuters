@@ -158,6 +158,8 @@ module DssReuters
   end
 
   class Api
+    attr_reader :session
+
     def initialize
       @session = Session.new
     end
