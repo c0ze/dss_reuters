@@ -6,9 +6,9 @@ require "dss_reuters/version"
 module DssReuters
   class Config
     BASE_URI = "https://hosted.datascopeapi.reuters.com"
-    DSS_USERNAME = ENV.fetch('DSS_USERNAME')
-    DSS_PASSWORD = ENV.fetch('DSS_PASSWORD')
     LOG_LEVEL = ENV['DSS_LOG_LEVEL'] || 'INFO'
+    DSS_USERNAME = ENV['DSS_USERNAME']
+    DSS_PASSWORD = ENV['DSS_PASSWORD']
   end
 
   class Session
@@ -16,6 +16,14 @@ module DssReuters
     base_uri Config::BASE_URI
 
     attr_reader :context, :token, :logger
+
+    def configured?
+      !Config::DSS_USERNAME.nil? and !Config::DSS_PASSWORD.nil?
+    end
+
+    def not_configured_error
+      @logger.error "dss_reuters gem not configured. you will not be able to fetch data from dss reuters API"
+    end
 
     def initialize
       @logger = ::Logger.new(STDOUT)
@@ -33,10 +41,14 @@ module DssReuters
           }
         }.to_json
       }
-      resp = self.class.post login_path, options
-      @token = resp["value"]
-      @context = resp["@odata.context"]
-      @logger.debug resp
+      if configured?
+        resp = self.class.post login_path, options
+        @token = resp["value"]
+        @context = resp["@odata.context"]
+        @logger.debug resp
+      else
+        not_configured_error
+      end
     end
   end
 
@@ -53,8 +65,12 @@ module DssReuters
           "Authorization" => "Token #{@session.token}"
         }
       }
-      resp = self.class.get path, options
-      @session.logger.debug resp
+      if session.configured?
+        resp = self.class.get path, options
+        @session.logger.debug resp
+      else
+        session.not_configured_error
+      end
     end
   end
 
@@ -101,11 +117,15 @@ module DssReuters
             }
           }.to_json
         }
-        resp = self.class.post path, options
-        if check_status(resp)
-          @location = resp["location"]
+        if session.configured?
+          resp = self.class.post path, options
+          if check_status(resp)
+            @location = resp["location"]
+          end
+          @session.logger.debug resp
+        else
+          session.not_configured_error
         end
-        @session.logger.debug resp
       end
     end
 
@@ -125,10 +145,14 @@ module DssReuters
             "Authorization" => "Token #{@session.token}"
           }
         }
-        @result = self.class.get @location, options
-        check_status @result
-        @session.logger.debug @result
-        @status
+        if @session.configured?
+          @result = self.class.get @location, options
+          check_status @result
+          @session.logger.debug @result
+          @status
+        else
+          @session.not_configured_error
+        end
       end
     end
   end
