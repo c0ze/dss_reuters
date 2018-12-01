@@ -2,6 +2,7 @@ require "dotenv/load"
 require "logger"
 require "httparty"
 require "dss_reuters/version"
+require_relative "data_stream_api"
 
 module DssReuters
   class Config
