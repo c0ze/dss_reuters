@@ -44,6 +44,24 @@ Default request fires a Composite extraction request. You can customize your req
     req = api.extract_with_isin "KE1000001402", :technical_indicators, ["Net Change - Close Price - 1 Day"]
     req = api.extract_with_isin "KE1000001402", :time_series, ["Close Price", "Trade Date"], {"StartDate" => "2018-01-01", "EndDate" => "2018-08-01"}
 
+## Data Stream API
+
+You need to set your credentials as ENVs :
+
+    DATA_STREAM_USERNAME
+    DATA_STREAM_PASSWORD
+
+You can also set `DATA_STREAM_LOG_LEVEL` to set log level.
+
+Usage flow goes like this :
+
+    require "dss_reuters"
+    api = DataStream::Api.new
+    res = api.ric_stream  ".TRXFLDAUTFIN", "2018-01-01", "2018-04-01"
+
+Data stream API acepts `RIC` identifier atm. The request is synchronous, so results are available immediately.
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dss_reuters. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
