@@ -101,6 +101,8 @@ end
 
 ENV['DSS_USERNAME'] = "test"
 ENV['DSS_PASSWORD'] = "test"
+ENV['DATA_STREAM_USERNAME'] = "test"
+ENV['DATA_STREAM_PASSWORD'] = "test"
 
 require 'vcr'
 

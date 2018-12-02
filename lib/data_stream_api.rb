@@ -2,6 +2,7 @@ require "dotenv/load"
 require "logger"
 require "httparty"
 require "dss_reuters/version"
+require_relative "dss_utilities"
 
 module DataStream
   class Config
@@ -13,6 +14,7 @@ module DataStream
 
   class Session
     include HTTParty
+    include DssUtilities
     base_uri Config::BASE_URI
 
     attr_reader :context, :token, :logger
@@ -38,7 +40,7 @@ module DataStream
       if configured?
         resp = self.class.get login_path, options
         @token = resp["TokenValue"]
-        @expiry = Time.at(resp["TokenExpiry"].split("(")[1].split(")")[0].to_i/1000)
+        @expiry = parseDate(resp["TokenExpiry"])
         @logger.debug resp
       else
         not_configured_error
@@ -72,9 +74,8 @@ module DataStream
       }
 
       if session.configured?
-        resp = self.class.post path, options
-        binding.pry
-        @session.logger.debug resp
+        @result = self.class.post path, options
+        @session.logger.debug @result
       else
         session.not_configured_error
       end
@@ -83,7 +84,7 @@ module DataStream
 
   class Api
     attr_reader :session
-
+    include DssUtilities
     def initialize
       @session = Session.new
     end
@@ -110,18 +111,23 @@ module DataStream
       #   "Value" => "VOD"
       # }
 
+
+      Stream.new @session, types, date, instrument
+    end
+
+    def ric_stream(ric, date_start, date_end)
       types = [
         {
           "Properties" => nil,
-          "Value" => ".TRXFLDAUTFIN"
+          "Value" => ric
         }
       ]
 
       date = {
-        "End" => "2018-04-01",
+        "End" => date_end,
         "Frequency" => "",
         "Kind" => 1,
-        "Start" => "2018-01-01"
+        "Start" => date_start
       }
 
       instrument = {
@@ -133,8 +139,12 @@ module DataStream
         ],
         "Value" => "RIC"
       }
-
-      Stream.new @session, types, date, instrument
+      stream = Stream.new @session, types, date, instrument
+      stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
+        { date: parseDate(date),
+          value: stream.result["DataResponse"]["DataTypeValues"][0]["SymbolValues"][0]["Value"][i]
+        }
+      end
     end
   end
 end

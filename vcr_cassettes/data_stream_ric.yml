@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://product.datastream.com/DSWSClient/V1/DSService.svc/rest/Token?Password=test&UserName=test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Length:
+      - '354'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Sun, 02 Dec 2018 04:33:18 GMT
+    body:
+      encoding: UTF-8
+      string: '{"Properties":null,"TokenExpiry":"\/Date(1543811537194)\/","TokenValue":"sample_token"}'
+    http_version: 
+  recorded_at: Sun, 02 Dec 2018 04:33:19 GMT
+- request:
+    method: post
+    uri: http://product.datastream.com/DswsClient/V1/DSService.svc/rest/GetData
+    body:
+      encoding: UTF-8
+      string: '{"DataRequest":{"DataTypes":[{"Properties":null,"Value":".TRXFLDAUTFIN"}],"Date":{"End":"2018-04-01","Frequency":"","Kind":1,"Start":"2018-01-01"},"Instrument":{"Properties":[{"Key":"IsExpression","Value":true}],"Value":"RIC"},"Tag":null},"Properties":null,"TokenValue":"sample_token"}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2501'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Sun, 02 Dec 2018 04:36:58 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJEYXRhUmVzcG9uc2UiOnsiQWRkaXRpb25hbFJlc3BvbnNlcyI6W3siS2V5IjoiRnJlcXVlbmN5IiwiVmFsdWUiOiJEIn1dLCJEYXRhVHlwZU5hbWVzIjpudWxsLCJEYXRhVHlwZVZhbHVlcyI6W3siRGF0YVR5cGUiOiIuVFJYRkxEQVVURklOIiwiU3ltYm9sVmFsdWVzIjpbeyJDdXJyZW5jeSI6IsKjIiwiU3ltYm9sIjoiUklDIiwiVHlwZSI6MTAsIlZhbHVlIjpbMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTIsMTIsMTIsMTIsMTIsMTIsMTIsMTIsMTEuNSwxMS41LDExLjUsMTEuNSwxMS41LDExLjUsMTAuNSwxMC41LDEwLjUsMTAuNV19XX1dLCJEYXRlcyI6WyJcL0RhdGUoMTUxNDc2NDgwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTQ4NTEyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE0OTM3NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNTAyNDAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTUxMTA0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE1MzY5NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNTQ1NjAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTU1NDI0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE1NjI4ODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNTcxNTIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTU5NzQ0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE2MDYwODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNjE0NzIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTYyMzM2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE2MzIwMDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNjU3OTIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTY2NjU2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE2NzUyMDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNjgzODQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTY5MjQ4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE3MTg0MDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNzI3MDQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTczNTY4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE3NDQzMjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNzUyOTYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTc3ODg4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE3ODc1MjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNzk2MTYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTgwNDgwMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE4MTM0NDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxODM5MzYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTg0ODAwMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE4NTY2NDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxODY1MjgwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTg3MzkyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE4OTk4NDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxOTA4NDgwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTkxNzEyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE5MjU3NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxOTM0NDAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTk2MDMyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE5Njg5NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxOTc3NjAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTk4NjI0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE5OTQ4ODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMDIwODAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjAyOTQ0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIwMzgwODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMDQ2NzIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjA1NTM2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIwODEyODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMDg5OTIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjA5ODU2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIxMDcyMDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMTE1ODQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjE0MTc2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIxNTA0MDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMTU5MDQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjE2NzY4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIxNzYzMjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMjAyMjQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjIxMDg4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIyMTk1MjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMjI4MTYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjIzNjgwMDAwMDArMDAwMClcLyJdLCJTeW1ib2xOYW1lcyI6bnVsbCwiVGFnIjpudWxsfSwiUHJvcGVydGllcyI6bnVsbH0=
+    http_version: 
+  recorded_at: Sun, 02 Dec 2018 04:37:00 GMT
+recorded_with: VCR 4.0.0
