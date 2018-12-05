@@ -24,15 +24,19 @@ Or install it yourself as:
 
 You need to set your credentials as ENVs :
 
-    DSS_USERNAME
-    DSS_PASSWORD
+    DATA_SCOPE_USERNAME
+    DATA_SCOPE_PASSWORD
+    DATA_STREAM_USERNAME
+    DATA_STREAM_PASSWORD
 
-You can also set `DSS_LOG_LEVEL` to set log level.
+You can also set `DATA_SCOPE_LOG_LEVEL` or `DATA_STREAM_LOG_LEVEL` to set log level.
+
+## Data Scope API
 
 Usage flow goes like this :
 
     require "dss_reuters"
-    api = DssReuters::Api.new
+    api = DataScope::Api.new
     req = api.extract_with_isin "KE1000001402"
     req.get_result
     req.status # check if :completed. If :in_progress, check again
@@ -44,14 +48,11 @@ Default request fires a Composite extraction request. You can customize your req
     req = api.extract_with_isin "KE1000001402", :technical_indicators, ["Net Change - Close Price - 1 Day"]
     req = api.extract_with_isin "KE1000001402", :time_series, ["Close Price", "Trade Date"], {"StartDate" => "2018-01-01", "EndDate" => "2018-08-01"}
 
+You can also use `extract_with_ric` to use Ric instrument identifiers.
+
+    req = api.extract_with_ric "SCOM.NR"
+
 ## Data Stream API
-
-You need to set your credentials as ENVs :
-
-    DATA_STREAM_USERNAME
-    DATA_STREAM_PASSWORD
-
-You can also set `DATA_STREAM_LOG_LEVEL` to set log level.
 
 Usage flow goes like this :
 
@@ -59,8 +60,17 @@ Usage flow goes like this :
     api = DataStream::Api.new
     res = api.ric_stream  ".TRXFLDAUTFIN", "2018-01-01", "2018-04-01"
 
-Data stream API acepts `RIC` identifier atm. The request is synchronous, so results are available immediately.
+You can also use ISIN identifiers as in Data Scope api.
 
+    res = api.isin_stream  "SCOM.NR", "2018-01-01", "2018-04-01"
+
+The request is synchronous, so results are available immediately.
+
+### Getting ISIN for RIC or vs
+
+You can use the DataScope api to get Isin code for a Ric code or vs
+
+    req = api.extract_with_isin "KE1000001402", :composite, ["RIC", "Close Price", "ISIN"]
 
 ## Contributing
 

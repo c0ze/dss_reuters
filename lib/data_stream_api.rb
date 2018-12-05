@@ -1,9 +1,3 @@
-require "dotenv/load"
-require "logger"
-require "httparty"
-require "dss_reuters/version"
-require_relative "dss_utilities"
-
 module DataStream
   class Config
     BASE_URI = "http://product.datastream.com"
