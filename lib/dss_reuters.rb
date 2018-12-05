@@ -193,5 +193,26 @@ module DssReuters
       ]
       OnDemandExtract.new(@session, identifiers, type, fields, condition)
     end
+
+    def extract_with_ric(ric_code, type=:composite, fields=nil, condition=nil)
+      fields ||= [
+        "Close Price",
+        "Contributor Code Description",
+        "Currency Code Description",
+        "Dividend Yield",
+        "Main Index",
+        "Market Capitalization",
+        "Market Capitalization - Local Currency",
+        "Percent Change - Close Price - 1 Day",
+        "Universal Close Price Date"
+      ]
+      identifiers = [
+        {
+          "Identifier" => ric_code,
+          "IdentifierType" => "Ric"
+        }
+      ]
+      OnDemandExtract.new(@session, identifiers, type, fields, condition)
+    end
   end
 end

@@ -1,0 +1,225 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"test","Password":"test"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.0x066f07d33ff0228d/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.532.64
+      Date:
+      - Wed, 05 Dec 2018 10:07:53 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcdo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"sample_token"}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 10:07:54 GMT
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotes
+    body:
+      encoding: UTF-8
+      string: '{"ExtractionRequest":{"@odata.type":"TimeSeriesExtractionRequest","ContentFieldNames":["Close
+        Price","Trade Date"],"IdentifierList":{"@odata.type":"InstrumentIdentifierList","InstrumentIdentifiers":[{"Identifier":".TRXFLDAUTFIN","IdentifierType":"Ric"}],"ValidationOptions":null,"UseUserPreferencesForValidationOptions":false},"Condition":{"StartDate":"2018-01-01","EndDate":"2018-04-01"}}}'
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Content-Type:
+      - application/json; odata=minimalmetadata
+      Authorization:
+      - Token sample_token
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Location:
+      - https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066f052511e02281')
+      Server:
+      - Microsoft-IIS/7.5
+      Status:
+      - InProgress
+      Progress:
+      - ''
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.0x066f052511f02281/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.532.64
+      Date:
+      - Wed, 05 Dec 2018 10:07:52 GMT
+      Content-Length:
+      - '0'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcao80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 10:08:00 GMT
+- request:
+    method: get
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066f052511e02281')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Authorization:
+      - Token sample_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.0x066f08c8f5302292/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.532.64
+      Date:
+      - Wed, 05 Dec 2018 10:08:10 GMT
+      Content-Length:
+      - '8340'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bceo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#ThomsonReuters.Dss.Api.Extractions.ExtractionRequests.ExtractionResult","Contents":[{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":646.51,"Trade Date":"2018-03-30"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":646.51,"Trade Date":"2018-03-29"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":646.69,"Trade Date":"2018-03-28"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":650.54,"Trade Date":"2018-03-27"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":649.17,"Trade Date":"2018-03-26"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":653.8,"Trade Date":"2018-03-23"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":666.51,"Trade Date":"2018-03-22"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":669.9,"Trade Date":"2018-03-21"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":667.53,"Trade Date":"2018-03-20"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":667.97,"Trade Date":"2018-03-19"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":668.13,"Trade Date":"2018-03-16"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":669.19,"Trade Date":"2018-03-15"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":673.92,"Trade Date":"2018-03-14"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":679.55,"Trade Date":"2018-03-13"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":681.02,"Trade Date":"2018-03-12"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":678.42,"Trade Date":"2018-03-09"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":673.67,"Trade Date":"2018-03-08"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":668.37,"Trade Date":"2018-03-07"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":675.03,"Trade Date":"2018-03-06"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":670.17,"Trade Date":"2018-03-05"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":674.45,"Trade Date":"2018-03-02"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.28,"Trade Date":"2018-03-01"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":679.33,"Trade Date":"2018-02-28"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":683.72,"Trade Date":"2018-02-27"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":680.7,"Trade Date":"2018-02-26"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":673.09,"Trade Date":"2018-02-23"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":668.21,"Trade Date":"2018-02-22"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":667.19,"Trade Date":"2018-02-21"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":664.01,"Trade Date":"2018-02-20"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":664.58,"Trade Date":"2018-02-19"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":660.37,"Trade Date":"2018-02-16"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":661.62,"Trade Date":"2018-02-15"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":656.54,"Trade Date":"2018-02-14"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":657.6,"Trade Date":"2018-02-13"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":653.86,"Trade Date":"2018-02-12"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":657.56,"Trade Date":"2018-02-09"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":661.05,"Trade Date":"2018-02-08"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":656.36,"Trade Date":"2018-02-07"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":656.13,"Trade Date":"2018-02-06"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.51,"Trade Date":"2018-02-05"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":686.41,"Trade Date":"2018-02-02"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":683.94,"Trade Date":"2018-02-01"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.15,"Trade Date":"2018-01-31"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":674.93,"Trade Date":"2018-01-30"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":679.12,"Trade Date":"2018-01-29"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.07,"Trade Date":"2018-01-26"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.07,"Trade Date":"2018-01-25"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":678.62,"Trade Date":"2018-01-24"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.04,"Trade Date":"2018-01-23"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":671.92,"Trade Date":"2018-01-22"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":676.58,"Trade Date":"2018-01-19"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.69,"Trade Date":"2018-01-18"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":675.76,"Trade Date":"2018-01-17"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":677.11,"Trade Date":"2018-01-16"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":680.64,"Trade Date":"2018-01-15"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":680.94,"Trade Date":"2018-01-12"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":684.04,"Trade Date":"2018-01-11"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":686.67,"Trade Date":"2018-01-10"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":690.25,"Trade Date":"2018-01-09"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":689.86,"Trade Date":"2018-01-08"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":688.07,"Trade Date":"2018-01-05"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":682.68,"Trade Date":"2018-01-04"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":682.84,"Trade Date":"2018-01-03"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":683.32,"Trade Date":"2018-01-02"},{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":684.94,"Trade Date":"2018-01-01"}],"Notes":["Extraction Services Version
+        12.2.39833 (738e4c2fbb28), Built Nov  1 2018 10:43:11\r\nProcessing started
+        at 12/05/2018 19:07:59.\r\nUser ID: 9010877\r\nExtraction ID: 335341972\r\nSchedule:
+        _OnD_0x066f052511e02281 (ID = 0x066f052512e02281)\r\nTimeseries Date Range:
+        01/01/2018 to 04/01/2018\r\nInput List (1 items): _OnD_0x066f052511e02281
+        (ID = 066f052512202281) Created: 12/05/2018 19:07:48 Last Modified: 12/05/2018
+        19:07:49\r\nSchedule Time: 12/05/2018 19:07:49\r\nReport Template (8 fields):
+        _OnD_0x066f052511e02281 (ID = 0x066f052512002281) Created: 12/05/2018 19:07:48
+        Last Modified: 12/05/2018 19:07:48\r\nReceived data from NDA server 8.95\r\nProcessing
+        completed successfully at 12/05/2018 19:08:00, taking 1.19 Secs.\r\nExtraction
+        finished at 12/05/2018 10:08:00 UTC, with servers: x07T01, QSHC17 (0.0 secs),
+        QSSHA1 (0.2 secs)\r\nUsage Summary for User 9010877, Client 65507, Template
+        Type Timeseries Pricing, NONE\r\nBase Usage\r\n        Instrument                          Instrument                   Terms          Price\r\n  Count
+        Type                                Subtype                      Source         Source\r\n-------
+        ----------------------------------- ---------------------------- --------------
+        ----------------------------------------\r\n      1 Equities                                                         N/A            N/A\r\n-------\r\n      1
+        Total instrument charged.\r\n      0 Instruments with no reported data.\r\n=======\r\n      1
+        Instrument in the input list.\r\nNo TRPS complex usage to report -- 1 Instrument
+        in the input list had no reported data.\r\n"]}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 10:08:11 GMT
+recorded_with: VCR 4.0.0

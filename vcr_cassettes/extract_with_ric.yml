@@ -1,0 +1,166 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"test","Password":"test"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.0x066f09aae4402296/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.532.64
+      Date:
+      - Wed, 05 Dec 2018 10:03:34 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcfo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"sample_token"}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 10:03:35 GMT
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotes
+    body:
+      encoding: UTF-8
+      string: '{"ExtractionRequest":{"@odata.type":"CompositeExtractionRequest","ContentFieldNames":["Close
+        Price","Contributor Code Description","Currency Code Description","Dividend
+        Yield","Main Index","Market Capitalization","Market Capitalization - Local
+        Currency","Percent Change - Close Price - 1 Day","Universal Close Price Date"],"IdentifierList":{"@odata.type":"InstrumentIdentifierList","InstrumentIdentifiers":[{"Identifier":".TRXFLDAUTFIN","IdentifierType":"Ric"}],"ValidationOptions":null,"UseUserPreferencesForValidationOptions":false},"Condition":null}}'
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Content-Type:
+      - application/json; odata=minimalmetadata
+      Authorization:
+      - Token sample_token
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Location:
+      - https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066f06fbea402289')
+      Server:
+      - Microsoft-IIS/7.5
+      Status:
+      - InProgress
+      Progress:
+      - ''
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.0x066f06fbea502289/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.532.64
+      Date:
+      - Wed, 05 Dec 2018 10:03:41 GMT
+      Content-Length:
+      - '0'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcco80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 10:03:41 GMT
+- request:
+    method: get
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066f06fbea402289')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Authorization:
+      - Token sample_token
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.0x066f08c6a4c02292/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 12.2.532.64
+      Date:
+      - Wed, 05 Dec 2018 10:03:52 GMT
+      Content-Length:
+      - '2159'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bceo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#ThomsonReuters.Dss.Api.Extractions.ExtractionRequests.ExtractionResult","Contents":[{"IdentifierType":"Ric","Identifier":".TRXFLDAUTFIN","Close
+        Price":650.66,"Contributor Code Description":"Thomson Reuters","Currency Code
+        Description":"Australian Dollar","Dividend Yield":null,"Main Index":null,"Market
+        Capitalization":25735172267.3505,"Market Capitalization - Local Currency":"CAD","Percent
+        Change - Close Price - 1 Day":-1.002662609,"Universal Close Price Date":"2018-12-04"}],"Notes":["Extraction
+        Services Version 12.2.39833 (738e4c2fbb28), Built Nov  1 2018 10:43:11\r\nHoliday
+        Rollover of Universal Close Price waived.\r\nProcessing started at 12/05/2018
+        19:03:43.\r\nUser ID: 9010877\r\nExtraction ID: 335341688\r\nSchedule: _OnD_0x066f06fbea402289
+        (ID = 0x066f06fbebf02289)\r\nInput List (1 items): _OnD_0x066f06fbea402289
+        (ID = 066f06fbeaa02289) Created: 12/05/2018 19:03:37 Last Modified: 12/05/2018
+        19:03:37\r\nSchedule Time: 12/05/2018 19:03:38\r\nReport Template (15 fields):
+        _OnD_0x066f06fbea402289 (ID = 0x066f06fbea602289) Created: 12/05/2018 19:03:37
+        Last Modified: 12/05/2018 19:03:37\r\nProcessing completed successfully at
+        12/05/2018 19:03:44, taking 0.822 Secs.\r\nExtraction finished at 12/05/2018
+        10:03:44 UTC, with servers: x01a02, QSHC12 (0.0 secs), QSSHA1 (0.0 secs),
+        QSa01b (0.2 secs), SnS (0.3 secs)\r\nUsage Summary for User 9010877, Client
+        65507, Template Type Composite\r\nBase Usage\r\n        Instrument                          Instrument                   Terms          Price\r\n  Count
+        Type                                Subtype                      Source         Source\r\n-------
+        ----------------------------------- ---------------------------- --------------
+        ----------------------------------------\r\n      1 Equities                                                         N/A            N/A\r\n-------\r\n      1
+        Total instrument charged.\r\n      0 Instruments with no reported data.\r\n=======\r\n      1
+        Instrument in the input list.\r\nNo TRPS complex usage to report -- 1 Instrument
+        in the input list had no reported data.\r\n"]}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 10:03:52 GMT
+recorded_with: VCR 4.0.0
