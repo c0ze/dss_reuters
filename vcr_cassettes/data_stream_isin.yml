@@ -1,0 +1,67 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://product.datastream.com/DSWSClient/V1/DSService.svc/rest/Token?Password=test&UserName=test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Length:
+      - '352'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 05 Dec 2018 08:46:21 GMT
+    body:
+      encoding: UTF-8
+      string: '{"Properties":null,"TokenExpiry":"\/Date(1544085920149)\/","TokenValue":"sample_token"}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 08:46:21 GMT
+- request:
+    method: post
+    uri: http://product.datastream.com/DswsClient/V1/DSService.svc/rest/GetData
+    body:
+      encoding: UTF-8
+      string: '{"DataRequest":{"DataTypes":[{"Properties":null,"Value":"KE1000001402"}],"Date":{"End":"2018-04-01","Frequency":"","Kind":1,"Start":"2018-01-01"},"Instrument":{"Properties":[{"Key":"IsExpression","Value":true}],"Value":"KE1000001402"},"Tag":null},"Properties":null,"TokenValue":"sample_token"}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2634'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 05 Dec 2018 08:46:21 GMT
+    body:
+      encoding: UTF-8
+      string: '{"DataResponse":{"AdditionalResponses":[{"Key":"Frequency","Value":"D"}],"DataTypeNames":null,"DataTypeValues":[{"DataType":"KE1000001402","SymbolValues":[{"Currency":"KS","Symbol":"KE1000001402","Type":10,"Value":[26.75,26.75,26.75,27,28,28,28,27.75,27.75,28.25,28.75,29,29,29.25,29.5,29.25,29.5,29.5,29.75,30,29.75,29.75,29.5,29.75,29.75,29.75,29.5,28.5,29.25,29,28.25,28.5,28.75,28.75,29.25,29.25,29.75,29.75,29.5,29.5,29.5,29.5,29.75,29.5,29.25,29.25,29.25,29.5,29.5,29.25,29.25,29.75,29.75,29.5,29.5,30,30.75,31.25,31.75,31.75,31.5,31.25,30.75,31,31]}]}],"Dates":["\/Date(1514764800000+0000)\/","\/Date(1514851200000+0000)\/","\/Date(1514937600000+0000)\/","\/Date(1515024000000+0000)\/","\/Date(1515110400000+0000)\/","\/Date(1515369600000+0000)\/","\/Date(1515456000000+0000)\/","\/Date(1515542400000+0000)\/","\/Date(1515628800000+0000)\/","\/Date(1515715200000+0000)\/","\/Date(1515974400000+0000)\/","\/Date(1516060800000+0000)\/","\/Date(1516147200000+0000)\/","\/Date(1516233600000+0000)\/","\/Date(1516320000000+0000)\/","\/Date(1516579200000+0000)\/","\/Date(1516665600000+0000)\/","\/Date(1516752000000+0000)\/","\/Date(1516838400000+0000)\/","\/Date(1516924800000+0000)\/","\/Date(1517184000000+0000)\/","\/Date(1517270400000+0000)\/","\/Date(1517356800000+0000)\/","\/Date(1517443200000+0000)\/","\/Date(1517529600000+0000)\/","\/Date(1517788800000+0000)\/","\/Date(1517875200000+0000)\/","\/Date(1517961600000+0000)\/","\/Date(1518048000000+0000)\/","\/Date(1518134400000+0000)\/","\/Date(1518393600000+0000)\/","\/Date(1518480000000+0000)\/","\/Date(1518566400000+0000)\/","\/Date(1518652800000+0000)\/","\/Date(1518739200000+0000)\/","\/Date(1518998400000+0000)\/","\/Date(1519084800000+0000)\/","\/Date(1519171200000+0000)\/","\/Date(1519257600000+0000)\/","\/Date(1519344000000+0000)\/","\/Date(1519603200000+0000)\/","\/Date(1519689600000+0000)\/","\/Date(1519776000000+0000)\/","\/Date(1519862400000+0000)\/","\/Date(1519948800000+0000)\/","\/Date(1520208000000+0000)\/","\/Date(1520294400000+0000)\/","\/Date(1520380800000+0000)\/","\/Date(1520467200000+0000)\/","\/Date(1520553600000+0000)\/","\/Date(1520812800000+0000)\/","\/Date(1520899200000+0000)\/","\/Date(1520985600000+0000)\/","\/Date(1521072000000+0000)\/","\/Date(1521158400000+0000)\/","\/Date(1521417600000+0000)\/","\/Date(1521504000000+0000)\/","\/Date(1521590400000+0000)\/","\/Date(1521676800000+0000)\/","\/Date(1521763200000+0000)\/","\/Date(1522022400000+0000)\/","\/Date(1522108800000+0000)\/","\/Date(1522195200000+0000)\/","\/Date(1522281600000+0000)\/","\/Date(1522368000000+0000)\/"],"SymbolNames":null,"Tag":null},"Properties":null}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 08:46:21 GMT
+recorded_with: VCR 4.0.0

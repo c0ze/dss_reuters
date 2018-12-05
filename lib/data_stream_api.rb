@@ -89,29 +89,7 @@ module DataStream
       @session = Session.new
     end
 
-    def stream(id_type=nil, id_value=nil, date_start=nil, date_end=nil)
-      # types = [
-      #   {
-      #     "Properties" => nil,
-      #     "Value" => "PL"
-      #   },
-      #   {
-      #     "Properties" => nil,
-      #     "Value" => "PH"
-      #   }
-      # ]
-      # date = {
-      #   "End" => "-20D",
-      #   "Frequency" => "D",
-      #   "Kind" => 1,
-      #   "Start" => "-30D"
-      # }
-      # instrument = {
-      #   "Properties" => nil,
-      #   "Value" => "VOD"
-      # }
-
-
+    def stream(types, date, instrument)
       Stream.new @session, types, date, instrument
     end
 
@@ -138,6 +116,38 @@ module DataStream
           }
         ],
         "Value" => "RIC"
+      }
+      stream = Stream.new @session, types, date, instrument
+      stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
+        { date: parseDate(date),
+          value: stream.result["DataResponse"]["DataTypeValues"][0]["SymbolValues"][0]["Value"][i]
+        }
+      end
+    end
+
+    def isin_stream(isin, date_start, date_end)
+      types = [
+        {
+          "Properties" => nil,
+          "Value" => isin
+        }
+      ]
+
+      date = {
+        "End" => date_end,
+        "Frequency" => "",
+        "Kind" => 1,
+        "Start" => date_start
+      }
+
+      instrument = {
+        "Properties" => [
+          {
+            "Key" => "IsExpression",
+            "Value" => true
+          }
+        ],
+        "Value" => isin
       }
       stream = Stream.new @session, types, date, instrument
       stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
