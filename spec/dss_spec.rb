@@ -26,6 +26,19 @@ describe DssReuters do
       req.get_result
       expect(req.result).not_to be_nil
       expect(req.status).to eq :complete
+      expect(req.result["Contents"]).to eq(
+                                          [{"Close Price"=>23.75,
+                                            "Contributor Code Description"=>"Nairobi Stock Exchange",
+                                            "Currency Code Description"=>"Kenyan Shilling",
+                                            "Dividend Yield"=>4.680851064,
+                                            "Identifier"=>"KE1000001402",
+                                            "IdentifierType"=>"Isin",
+                                            "Main Index"=>"Nairobi SE 20 Share Index",
+                                            "Market Capitalization"=>9303730810.27668,
+                                            "Market Capitalization - Local Currency"=>"KES",
+                                            "Percent Change - Close Price - 1 Day"=>0,
+                                            "Universal Close Price Date"=>"2018-10-29"}]
+                                        )
     end
   end
 
@@ -36,6 +49,19 @@ describe DssReuters do
       req.get_result
       expect(req.result).not_to be_nil
       expect(req.status).to eq :complete
+      expect(req.result["Contents"]).to eq(
+                                          [{"Close Price"=>23.75,
+                                            "Contributor Code Description"=>"Nairobi Stock Exchange",
+                                            "Currency Code Description"=>"Kenyan Shilling",
+                                            "Dividend Yield"=>4.680851064,
+                                            "Identifier"=>"KE1000001402",
+                                            "IdentifierType"=>"Isin",
+                                            "Main Index"=>"Nairobi SE 20 Share Index",
+                                            "Market Capitalization"=>9303730810.27668,
+                                            "Market Capitalization - Local Currency"=>"KES",
+                                            "Percent Change - Close Price - 1 Day"=>0,
+                                            "Universal Close Price Date"=>"2018-10-29"}]
+                                        )
     end
   end
 
