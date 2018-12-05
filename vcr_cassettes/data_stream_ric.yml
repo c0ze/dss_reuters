@@ -21,7 +21,7 @@ http_interactions:
       Cache-Control:
       - no-cache
       Content-Length:
-      - '354'
+      - '353'
       Content-Type:
       - application/json; charset=utf-8
       Server:
@@ -29,18 +29,18 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Sun, 02 Dec 2018 04:33:18 GMT
+      - Wed, 05 Dec 2018 12:55:58 GMT
     body:
       encoding: UTF-8
-      string: '{"Properties":null,"TokenExpiry":"\/Date(1543811537194)\/","TokenValue":"sample_token"}'
+      string: '{"Properties":null,"TokenExpiry":"\/Date(1544100898530)\/","TokenValue":"sample_token"}'
     http_version: 
-  recorded_at: Sun, 02 Dec 2018 04:33:19 GMT
+  recorded_at: Wed, 05 Dec 2018 12:55:59 GMT
 - request:
     method: post
     uri: http://product.datastream.com/DswsClient/V1/DSService.svc/rest/GetData
     body:
       encoding: UTF-8
-      string: '{"DataRequest":{"DataTypes":[{"Properties":null,"Value":".TRXFLDAUTFIN"}],"Date":{"End":"2018-04-01","Frequency":"","Kind":1,"Start":"2018-01-01"},"Instrument":{"Properties":[{"Key":"IsExpression","Value":true}],"Value":"RIC"},"Tag":null},"Properties":null,"TokenValue":"sample_token"}'
+      string: '{"DataRequest":{"Date":{"End":"2018-04-01","Frequency":"","Kind":1,"Start":"2018-01-01"},"Instrument":{"Properties":[{"Key":"IsSymbolSet","Value":true}],"Value":"<.TRXFLDAUTFIN>"},"Tag":null},"Properties":null,"TokenValue":"sample_token"}'
     headers:
       Content-Type:
       - application/json
@@ -50,7 +50,7 @@ http_interactions:
       message: OK
     headers:
       Content-Length:
-      - '2501'
+      - '2736'
       Content-Type:
       - application/json; charset=utf-8
       Server:
@@ -58,11 +58,45 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Sun, 02 Dec 2018 04:36:58 GMT
+      - Wed, 05 Dec 2018 12:55:58 GMT
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        eyJEYXRhUmVzcG9uc2UiOnsiQWRkaXRpb25hbFJlc3BvbnNlcyI6W3siS2V5IjoiRnJlcXVlbmN5IiwiVmFsdWUiOiJEIn1dLCJEYXRhVHlwZU5hbWVzIjpudWxsLCJEYXRhVHlwZVZhbHVlcyI6W3siRGF0YVR5cGUiOiIuVFJYRkxEQVVURklOIiwiU3ltYm9sVmFsdWVzIjpbeyJDdXJyZW5jeSI6IsKjIiwiU3ltYm9sIjoiUklDIiwiVHlwZSI6MTAsIlZhbHVlIjpbMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTMsMTIsMTIsMTIsMTIsMTIsMTIsMTIsMTIsMTEuNSwxMS41LDExLjUsMTEuNSwxMS41LDExLjUsMTAuNSwxMC41LDEwLjUsMTAuNV19XX1dLCJEYXRlcyI6WyJcL0RhdGUoMTUxNDc2NDgwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTQ4NTEyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE0OTM3NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNTAyNDAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTUxMTA0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE1MzY5NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNTQ1NjAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTU1NDI0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE1NjI4ODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNTcxNTIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTU5NzQ0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE2MDYwODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNjE0NzIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTYyMzM2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE2MzIwMDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNjU3OTIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTY2NjU2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE2NzUyMDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNjgzODQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTY5MjQ4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE3MTg0MDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNzI3MDQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTczNTY4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE3NDQzMjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNzUyOTYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTc3ODg4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE3ODc1MjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxNzk2MTYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTgwNDgwMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE4MTM0NDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxODM5MzYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTg0ODAwMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE4NTY2NDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxODY1MjgwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTg3MzkyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE4OTk4NDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxOTA4NDgwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTkxNzEyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE5MjU3NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxOTM0NDAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTk2MDMyMDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE5Njg5NjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUxOTc3NjAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MTk4NjI0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTE5OTQ4ODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMDIwODAwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjAyOTQ0MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIwMzgwODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMDQ2NzIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjA1NTM2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIwODEyODAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMDg5OTIwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjA5ODU2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIxMDcyMDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMTE1ODQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjE0MTc2MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIxNTA0MDAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMTU5MDQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjE2NzY4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIxNzYzMjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMjAyMjQwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjIxMDg4MDAwMDArMDAwMClcLyIsIlwvRGF0ZSgxNTIyMTk1MjAwMDAwKzAwMDApXC8iLCJcL0RhdGUoMTUyMjI4MTYwMDAwMCswMDAwKVwvIiwiXC9EYXRlKDE1MjIzNjgwMDAwMDArMDAwMClcLyJdLCJTeW1ib2xOYW1lcyI6bnVsbCwiVGFnIjpudWxsfSwiUHJvcGVydGllcyI6bnVsbH0=
+      encoding: UTF-8
+      string: '{"DataResponse":{"AdditionalResponses":[{"Key":"Frequency","Value":"D"}],"DataTypeNames":null,"DataTypeValues":[{"DataType":"","SymbolValues":[{"Currency":"A$","Symbol":"<.TRXFLDAUTFIN>","Type":10,"Value":[684.94,683.32,682.84,682.68,688.07,689.86,690.25,686.67,684.04,680.94,680.64,677.11,675.76,677.69,676.58,671.92,677.04,678.62,677.07,677.07,679.12,674.93,677.15,683.94,686.41,677.51,656.13,656.36,661.05,657.56,653.86,657.6,656.54,661.62,660.37,664.58,664.01,667.19,668.21,673.09,680.7,683.72,679.33,677.28,674.45,670.17,675.03,668.37,673.67,678.42,681.02,679.55,673.92,669.19,668.13,667.97,667.53,669.9,666.51,653.8,649.17,650.54,646.69,646.51,646.51]}]}],"Dates":["\/Date(1514764800000+0000)\/","\/Date(1514851200000+0000)\/","\/Date(1514937600000+0000)\/","\/Date(1515024000000+0000)\/","\/Date(1515110400000+0000)\/","\/Date(1515369600000+0000)\/","\/Date(1515456000000+0000)\/","\/Date(1515542400000+0000)\/","\/Date(1515628800000+0000)\/","\/Date(1515715200000+0000)\/","\/Date(1515974400000+0000)\/","\/Date(1516060800000+0000)\/","\/Date(1516147200000+0000)\/","\/Date(1516233600000+0000)\/","\/Date(1516320000000+0000)\/","\/Date(1516579200000+0000)\/","\/Date(1516665600000+0000)\/","\/Date(1516752000000+0000)\/","\/Date(1516838400000+0000)\/","\/Date(1516924800000+0000)\/","\/Date(1517184000000+0000)\/","\/Date(1517270400000+0000)\/","\/Date(1517356800000+0000)\/","\/Date(1517443200000+0000)\/","\/Date(1517529600000+0000)\/","\/Date(1517788800000+0000)\/","\/Date(1517875200000+0000)\/","\/Date(1517961600000+0000)\/","\/Date(1518048000000+0000)\/","\/Date(1518134400000+0000)\/","\/Date(1518393600000+0000)\/","\/Date(1518480000000+0000)\/","\/Date(1518566400000+0000)\/","\/Date(1518652800000+0000)\/","\/Date(1518739200000+0000)\/","\/Date(1518998400000+0000)\/","\/Date(1519084800000+0000)\/","\/Date(1519171200000+0000)\/","\/Date(1519257600000+0000)\/","\/Date(1519344000000+0000)\/","\/Date(1519603200000+0000)\/","\/Date(1519689600000+0000)\/","\/Date(1519776000000+0000)\/","\/Date(1519862400000+0000)\/","\/Date(1519948800000+0000)\/","\/Date(1520208000000+0000)\/","\/Date(1520294400000+0000)\/","\/Date(1520380800000+0000)\/","\/Date(1520467200000+0000)\/","\/Date(1520553600000+0000)\/","\/Date(1520812800000+0000)\/","\/Date(1520899200000+0000)\/","\/Date(1520985600000+0000)\/","\/Date(1521072000000+0000)\/","\/Date(1521158400000+0000)\/","\/Date(1521417600000+0000)\/","\/Date(1521504000000+0000)\/","\/Date(1521590400000+0000)\/","\/Date(1521676800000+0000)\/","\/Date(1521763200000+0000)\/","\/Date(1522022400000+0000)\/","\/Date(1522108800000+0000)\/","\/Date(1522195200000+0000)\/","\/Date(1522281600000+0000)\/","\/Date(1522368000000+0000)\/"],"SymbolNames":null,"Tag":null},"Properties":null}'
     http_version: 
-  recorded_at: Sun, 02 Dec 2018 04:37:00 GMT
+  recorded_at: Wed, 05 Dec 2018 12:55:59 GMT
+- request:
+    method: get
+    uri: http://product.datastream.com/DSWSClient/V1/DSService.svc/rest/Token?Password=test&UserName=test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Content-Length:
+      - '354'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/8.0
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 05 Dec 2018 13:05:50 GMT
+    body:
+      encoding: UTF-8
+      string: '{"Properties":null,"TokenExpiry":"\/Date(1544101489509)\/","TokenValue":"sample_token"}'
+    http_version: 
+  recorded_at: Wed, 05 Dec 2018 13:05:51 GMT
 recorded_with: VCR 4.0.0
