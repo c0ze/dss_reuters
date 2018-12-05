@@ -53,7 +53,7 @@ module DataStream
     base_uri Config::BASE_URI
     attr_reader :result
 
-    def initialize(session, types, date, instrument)
+    def initialize(session, instrument, date)
       @session = session
       path = "/DswsClient/V1/DSService.svc/rest/GetData"
 
@@ -63,7 +63,6 @@ module DataStream
         },
         body: {
           "DataRequest" => {
-            "DataTypes" => types,
             "Date" => date,
             "Instrument" => instrument,
             "Tag" => nil
@@ -89,72 +88,37 @@ module DataStream
       @session = Session.new
     end
 
-    def stream(types, date, instrument)
-      Stream.new @session, types, date, instrument
+    def stream(value, date_start, date_end)
+      date = {
+        "End" => date_end,
+        "Frequency" => "",
+        "Kind" => 1,
+        "Start" => date_start
+      }
+
+      instrument = {
+        "Properties" => [
+          {
+            "Key" => "IsSymbolSet",
+            "Value" => true
+          }
+        ],
+        "Value" => value
+      }
+      stream = Stream.new @session, instrument, date
+      stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
+        { date: parseDate(date),
+          value: stream.result["DataResponse"]["DataTypeValues"][0]["SymbolValues"][0]["Value"][i]
+        }
+      end
     end
 
     def ric_stream(ric, date_start, date_end)
-      types = [
-        {
-          "Properties" => nil,
-          "Value" => ric
-        }
-      ]
-
-      date = {
-        "End" => date_end,
-        "Frequency" => "",
-        "Kind" => 1,
-        "Start" => date_start
-      }
-
-      instrument = {
-        "Properties" => [
-          {
-            "Key" => "IsExpression",
-            "Value" => true
-          }
-        ],
-        "Value" => "RIC"
-      }
-      stream = Stream.new @session, types, date, instrument
-      stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
-        { date: parseDate(date),
-          value: stream.result["DataResponse"]["DataTypeValues"][0]["SymbolValues"][0]["Value"][i]
-        }
-      end
+      stream "<#{ric}>", date_start, date_end
     end
 
     def isin_stream(isin, date_start, date_end)
-      types = [
-        {
-          "Properties" => nil,
-          "Value" => isin
-        }
-      ]
-
-      date = {
-        "End" => date_end,
-        "Frequency" => "",
-        "Kind" => 1,
-        "Start" => date_start
-      }
-
-      instrument = {
-        "Properties" => [
-          {
-            "Key" => "IsExpression",
-            "Value" => true
-          }
-        ],
-        "Value" => isin
-      }
-      stream = Stream.new @session, types, date, instrument
-      stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
-        { date: parseDate(date),
-          value: stream.result["DataResponse"]["DataTypeValues"][0]["SymbolValues"][0]["Value"][i]
-        }
-      end
+      stream isin, date_start, date_end
     end
   end
 end
