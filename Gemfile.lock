@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dss_reuters (0.8.0)
+    dss_reuters (0.9.0)
       dotenv
       httparty (~> 0.16)
       pry-byebug
