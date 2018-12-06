@@ -16,7 +16,7 @@ describe DataStream do
       date_start = "2018-01-01"
       date_end = "2018-04-01"
       api = DataStream::Api.new
-      res = api.ric_stream ric, date_start, date_end
+      res = api.ric_stream ric, date_start, date_end, { dates_as_string: true }
       expect(res).to eq(
                        [{:date=>"2018-01-01", :value=>684.94},
                         {:date=>"2018-01-02", :value=>683.32},
@@ -93,7 +93,7 @@ describe DataStream do
       date_start = "2018-01-01"
       date_end = "2018-04-01"
       api = DataStream::Api.new
-      res = api.isin_stream isin, date_start, date_end
+      res = api.isin_stream isin, date_start, date_end, { dates_as_string: true }
       expect(res).to eq(
                        [{:date=>"2018-01-01", :value=>26.75},
                         {:date=>"2018-01-02", :value=>26.75},

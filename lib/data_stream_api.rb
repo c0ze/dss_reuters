@@ -82,7 +82,7 @@ module DataStream
       @session = Session.new
     end
 
-    def stream(value, date_start, date_end)
+    def stream(value, date_start, date_end, options={})
       date = {
         "End" => date_end,
         "Frequency" => "",
@@ -101,18 +101,18 @@ module DataStream
       }
       stream = Stream.new @session, instrument, date
       stream.result["DataResponse"]["Dates"].each_with_index.map do |date, i|
-        { date: parseDate(date),
+        { date: parseDate(date, options),
           value: stream.result["DataResponse"]["DataTypeValues"][0]["SymbolValues"][0]["Value"][i]
         }
       end
     end
 
-    def ric_stream(ric, date_start, date_end)
-      stream "<#{ric}>", date_start, date_end
+    def ric_stream(ric, date_start, date_end, options={})
+      stream "<#{ric}>", date_start, date_end, options
     end
 
-    def isin_stream(isin, date_start, date_end)
-      stream isin, date_start, date_end
+    def isin_stream(isin, date_start, date_end, options={})
+      stream isin, date_start, date_end, options
     end
   end
 end
