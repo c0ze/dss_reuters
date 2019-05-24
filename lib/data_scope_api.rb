@@ -53,7 +53,7 @@ module DataScope
 
     def initialize(session)
       @session = session
-      path = "/RestApi/v1/Users/Users(#{Config::DSS_USERNAME})"
+      path = "/RestApi/v1/Users/Users(#{Config::DATA_SCOPE_USERNAME})"
       options = {
         headers: {
           "Prefer" => "respond-async",
