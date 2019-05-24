@@ -1,3 +1,3 @@
 module DssReuters
-  VERSION = "0.9.0-ersion.1"
+  VERSION = "0.9.0"
 end
