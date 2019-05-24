@@ -114,9 +114,7 @@ module DataScope
         }
         if session.configured?
           resp = self.class.post path, options
-          if check_status(resp)
-            @location = resp["location"]
-          end
+          process_response(resp)
           @session.logger.debug resp
         else
           session.not_configured_error
@@ -124,12 +122,15 @@ module DataScope
       end
     end
 
-    def check_status(resp)
-      if resp["status"] == "InProgress"
-        @status = :in_progress
-      else
-        @status = :complete
-      end
+    def process_response(resp)
+      @location = resp["location"]
+      @result = resp
+      @status = case resp["status"]
+                when "InProgress"
+                  :in_progress
+                else
+                  :completed
+                end
     end
 
     def get_result
@@ -141,8 +142,8 @@ module DataScope
           }
         }
         if @session.configured?
-          @result = self.class.get @location, options
-          check_status @result
+          resp = self.class.get @location, options
+          process_response(resp)
           @session.logger.debug @result
           @status
         else

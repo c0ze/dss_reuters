@@ -25,7 +25,7 @@ describe DataScope do
       req = api.extract_with_isin "KE1000001402"
       req.get_result
       expect(req.result).not_to be_nil
-      expect(req.status).to eq :complete
+      expect(req.status).to eq :completed
       expect(req.result["Contents"]).to eq(
                                           [{"Close Price"=>23.75,
                                             "Contributor Code Description"=>"Nairobi Stock Exchange",
@@ -48,7 +48,7 @@ describe DataScope do
       req = api.extract_with_location "https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066341ce7e301788')"
       req.get_result
       expect(req.result).not_to be_nil
-      expect(req.status).to eq :complete
+      expect(req.status).to eq :completed
       expect(req.result["Contents"]).to eq(
                                           [{"Close Price"=>23.75,
                                             "Contributor Code Description"=>"Nairobi Stock Exchange",
@@ -70,7 +70,7 @@ describe DataScope do
       api = DataScope::Api.new
       req = api.extract_with_ric ".TRXFLDAUTFIN"
       req.get_result
-      expect(req.status).to eq :complete
+      expect(req.status).to eq :completed
       expect(req.result["Contents"])
         .to eq(
               [{"IdentifierType"=>"Ric",
@@ -96,7 +96,7 @@ describe DataScope do
                                  ["Close Price", "Trade Date"],
                                  {"StartDate" => "2018-01-01", "EndDate" => "2018-04-01"}
       req.get_result
-      expect(req.status).to eq :complete
+      expect(req.status).to eq :completed
       expect(req.result["Contents"])
         .to eq(
               [{"IdentifierType"=>"Ric", "Identifier"=>".TRXFLDAUTFIN", "Close Price"=>646.51, "Trade Date"=>"2018-03-30"},
