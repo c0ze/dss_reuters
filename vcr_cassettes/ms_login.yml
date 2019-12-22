@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"9010877","Password":"Ent0528!"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.06a5bc6c9b109767/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:06 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcao80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"___8d8ilynm91njLgYxV5SFjH0DFtFgoA7kyYSjKM1SvihZ328qpoZOeK2JV4meS_R1rIUQX36m4ApqEJWa8-zPxOyu9sdTGf1uidOoHinQmRL0iBh1RI5XA6AnifsigeRZvhkI-5MGWe71-eN_BdDe288ko18-x1ir7-2vTVCppDU6C5-P6HstfoG51bo2lFqVC-CZcQA0vO0gMpeIkbEg5qd4JghpgYcTh8Jf_PsN1VaR0adLEDn4ojg_O42aLJzLygEoltQmDz-9bBLEd2DEBZOIvtu3uf7xY5No_D4Fs"}'
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:07 GMT
+recorded_with: VCR 4.0.0

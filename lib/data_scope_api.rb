@@ -183,7 +183,7 @@ module DataScope
       identifiers = [
         {
           "Identifier" => isin_code,
-         "IdentifierType" => "Isin"
+          "IdentifierType" => "Isin"
         }
       ]
       OnDemandExtract.new(@session, identifiers, type, fields, condition)

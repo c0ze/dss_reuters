@@ -1,0 +1,167 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"9010877","Password":"Ent0528!"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.06a5bc6caf509767/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:17 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcao80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"_goS_dDbbeFgFNNzXTl6Az7c6EF_QRb0uqGHzKKY4hs0tNBzv3T3IV5biXezw8runHKe4IqOM2I5w2qh_AJ84nh1BEExYWNXoISNCg4PqfwYIa0n4I7yEnU4eGM6z5cbhGWe07icgkNbqdy_xgZ7oC8eKL7Qc5iv46LFG8pyD6wBoZ31stzXFVjEPq4ynzIl333EF8wH3OZrereX4ZOl2QqEZBus-8EyzUHyK3ouL8hj1XCY_CVzNWVUBObUdv_8LzF8Gyid6PU-QBJF1PgUYR2slpxStOj7lNaCi6DC-Gns"}'
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:17 GMT
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotes
+    body:
+      encoding: UTF-8
+      string: '{"ExtractionRequest":{"@odata.type":"CompositeExtractionRequest","ContentFieldNames":["Close
+        Price","Contributor Code Description","Currency Code Description","Dividend
+        Yield","Main Index","Market Capitalization","Market Capitalization - Local
+        Currency","Percent Change - Close Price - 1 Day","Universal Close Price Date"],"IdentifierList":{"@odata.type":"InstrumentIdentifierList","InstrumentIdentifiers":[{"Identifier":"US5949181045","IdentifierType":"Isin"}],"ValidationOptions":null,"UseUserPreferencesForValidationOptions":false},"Condition":null}}'
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Content-Type:
+      - application/json; odata=minimalmetadata
+      Authorization:
+      - Token _goS_dDbbeFgFNNzXTl6Az7c6EF_QRb0uqGHzKKY4hs0tNBzv3T3IV5biXezw8runHKe4IqOM2I5w2qh_AJ84nh1BEExYWNXoISNCg4PqfwYIa0n4I7yEnU4eGM6z5cbhGWe07icgkNbqdy_xgZ7oC8eKL7Qc5iv46LFG8pyD6wBoZ31stzXFVjEPq4ynzIl333EF8wH3OZrereX4ZOl2QqEZBus-8EyzUHyK3ouL8hj1XCY_CVzNWVUBObUdv_8LzF8Gyid6PU-QBJF1PgUYR2slpxStOj7lNaCi6DC-Gns
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Location:
+      - https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x06a5bd685a30976b')
+      Server:
+      - Microsoft-IIS/7.5
+      Status:
+      - InProgress
+      Progress:
+      - ''
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.06a5bd685a40976b/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:22 GMT
+      Content-Length:
+      - '0'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcbo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:24 GMT
+- request:
+    method: get
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x06a5bd685a30976b')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Authorization:
+      - Token _goS_dDbbeFgFNNzXTl6Az7c6EF_QRb0uqGHzKKY4hs0tNBzv3T3IV5biXezw8runHKe4IqOM2I5w2qh_AJ84nh1BEExYWNXoISNCg4PqfwYIa0n4I7yEnU4eGM6z5cbhGWe07icgkNbqdy_xgZ7oC8eKL7Qc5iv46LFG8pyD6wBoZ31stzXFVjEPq4ynzIl333EF8wH3OZrereX4ZOl2QqEZBus-8EyzUHyK3ouL8hj1XCY_CVzNWVUBObUdv_8LzF8Gyid6PU-QBJF1PgUYR2slpxStOj7lNaCi6DC-Gns
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.06a5bf30d7009773/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:40 GMT
+      Content-Length:
+      - '2205'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcdo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#ThomsonReuters.Dss.Api.Extractions.ExtractionRequests.ExtractionResult","Contents":[{"IdentifierType":"Isin","Identifier":"US5949181045","Close
+        Price":126.18,"Contributor Code Description":"NASDAQ Stock Exchange Global
+        Select Market","Currency Code Description":"U.S. Dollar","Dividend Yield":1.441215634,"Main
+        Index":"NASDAQ Composite Index","Market Capitalization":966894365145.6,"Market
+        Capitalization - Local Currency":"USD","Percent Change - Close Price - 1 Day":-1.167071356,"Universal
+        Close Price Date":"2019-05-23"}],"Notes":["Extraction Services Version 13.0.40569
+        (590bfa45051d), Built May  6 2019 14:18:06\r\nHoliday Rollover of Universal
+        Close Price waived.\r\nProcessing started at 05/24/2019 13:56:21.\r\nUser
+        ID: 9010877\r\nExtraction ID: 364197030\r\nSchedule: _OnD_0x06a5bd685a30976b
+        (ID = 0x06a5bd685c90976b)\r\nInput List (1 items): _OnD_0x06a5bd685a30976b
+        (ID = 06a5bd685aa0976b) Created: 05/24/2019 13:56:19 Last Modified: 05/24/2019
+        13:56:19\r\nSchedule Time: 05/24/2019 13:56:19\r\nReport Template (15 fields):
+        _OnD_0x06a5bd685a30976b (ID = 0x06a5bd685a50976b) Created: 05/24/2019 13:56:19
+        Last Modified: 05/24/2019 13:56:19\r\nProcessing completed successfully at
+        05/24/2019 13:56:21, taking 0.753 Secs.\r\nExtraction finished at 05/24/2019
+        04:56:21 UTC, with servers: x02a01, QSHC15 (0.0 secs), QSSHA1 (0.0 secs),
+        QSa01a (0.2 secs), SnS (0.3 secs)\r\nUsage Summary for User 9010877, Client
+        65507, Template Type Composite\r\nBase Usage\r\n        Instrument                          Instrument                   Terms          Price\r\n  Count
+        Type                                Subtype                      Source         Source\r\n-------
+        ----------------------------------- ---------------------------- --------------
+        ----------------------------------------\r\n      1 Equities                                                         N/A            N/A\r\n-------\r\n      1
+        Total instrument charged.\r\n      0 Instruments with no reported data.\r\n=======\r\n      1
+        Instrument in the input list.\r\nNo TRPS complex usage to report -- 1 Instrument
+        in the input list had no reported data.\r\n"]}'
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:41 GMT
+recorded_with: VCR 4.0.0

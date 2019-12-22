@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"9010877","Password":"Ent0528!"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.06a5bd68a3d0976b/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:43 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcbo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"_oBlnL5_bP4MDAvxCYHGc1jFzmDima6b8YrDbVGIg4RfnmHrqk4o1SJHHc35reCv9En03Vf2eqes2hMv_rKy-DmsxGQOdxKwitaIKjA5AllVSEzJpZ73fn7iekW5ljYMODF0DmUNzxsIJWedGxlie-isQHZrq0aJpMq9omYPoFmS5mmd6wxq8xrxhoL8lcXOr9hRaBWDyL6TL2ULqpIAzWAqssv7J7mcyTMSH_aZZ5hvTRoo8JX9N_NkVPSvcqM4XEcDUihpSczP6FRK6jesGC9gCKEQOcjkmWj29nPYL7Xo"}'
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:43 GMT
+- request:
+    method: get
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x066341ce7e301788')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Authorization:
+      - Token _oBlnL5_bP4MDAvxCYHGc1jFzmDima6b8YrDbVGIg4RfnmHrqk4o1SJHHc35reCv9En03Vf2eqes2hMv_rKy-DmsxGQOdxKwitaIKjA5AllVSEzJpZ73fn7iekW5ljYMODF0DmUNzxsIJWedGxlie-isQHZrq0aJpMq9omYPoFmS5mmd6wxq8xrxhoL8lcXOr9hRaBWDyL6TL2ULqpIAzWAqssv7J7mcyTMSH_aZZ5hvTRoo8JX9N_NkVPSvcqM4XEcDUihpSczP6FRK6jesGC9gCKEQOcjkmWj29nPYL7Xo
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.06a5bc6ce2209767/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:44 GMT
+      Content-Length:
+      - '67'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcao80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"error":{"message":"Job of id ''0x066341ce7e301788'' not found.  "}}'
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:45 GMT
+recorded_with: VCR 4.0.0

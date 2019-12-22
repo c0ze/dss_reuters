@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Authentication/RequestToken
+    body:
+      encoding: UTF-8
+      string: '{"Credentials":{"Username":"9010877","Password":"Ent0528!"}}'
+    headers:
+      Prefer:
+      - respond-async
+      Content-Type:
+      - application/json; odata=minimalmetadata
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      Expires:
+      - "-1"
+      Server:
+      - Microsoft-IIS/7.5
+      X-Request-Execution-Correlation-Id:
+      - CiD/0/AAAAAA.06a5c00289b0977c/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:08 GMT
+      Content-Length:
+      - '403'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bceo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: '{"@odata.context":"https://hosted.datascopeapi.reuters.com/RestApi/v1/$metadata#Edm.String","value":"_ZL0L4IVNIy5L4gkNEqvRspvQTsKincnidZAVh8foigLwvNvLPSoC1B3vmF-Nv9NcQVr16lfCYV3-joSrE_C-NAM6OSQdJBNkYeyFJ7rln9CVufsPoioeR4FuKNsIP3d6Sqj35jsQfZvgssQTOCH36lhva3GF1hRv6jQU7bu8A5WSmpNGrj0dSCl_yRBxtO39B5pSDKQbBoYRckRWUUD2sOYcCXFUwQHlq27bfIfouosc4g6o7HLfOYpVCQqXVEsHOP2GI6IMnPvWecXwPBwMBjbj5S3Wu_7Yxq_dMPGE8Fo"}'
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:09 GMT
+- request:
+    method: post
+    uri: https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotes
+    body:
+      encoding: UTF-8
+      string: '{"ExtractionRequest":{"@odata.type":"CompositeExtractionRequest","ContentFieldNames":["Close
+        Price","Contributor Code Description","Currency Code Description","Dividend
+        Yield","Main Index","Market Capitalization","Market Capitalization - Local
+        Currency","Percent Change - Close Price - 1 Day","Universal Close Price Date"],"IdentifierList":{"@odata.type":"InstrumentIdentifierList","InstrumentIdentifiers":[{"Identifier":"US5949181045","IdentifierType":"Isin"}],"ValidationOptions":null,"UseUserPreferencesForValidationOptions":false},"Condition":null}}'
+    headers:
+      Prefer:
+      - respond-async; wait=5
+      Content-Type:
+      - application/json; odata=minimalmetadata
+      Authorization:
+      - Token _ZL0L4IVNIy5L4gkNEqvRspvQTsKincnidZAVh8foigLwvNvLPSoC1B3vmF-Nv9NcQVr16lfCYV3-joSrE_C-NAM6OSQdJBNkYeyFJ7rln9CVufsPoioeR4FuKNsIP3d6Sqj35jsQfZvgssQTOCH36lhva3GF1hRv6jQU7bu8A5WSmpNGrj0dSCl_yRBxtO39B5pSDKQbBoYRckRWUUD2sOYcCXFUwQHlq27bfIfouosc4g6o7HLfOYpVCQqXVEsHOP2GI6IMnPvWecXwPBwMBjbj5S3Wu_7Yxq_dMPGE8Fo
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Expires:
+      - "-1"
+      Location:
+      - https://hosted.datascopeapi.reuters.com/RestApi/v1/Extractions/ExtractWithNotesResult(ExtractionId='0x06a5c0e5e3b0977f')
+      Server:
+      - Microsoft-IIS/7.5
+      Status:
+      - InProgress
+      Progress:
+      - ''
+      X-Request-Execution-Correlation-Id:
+      - CiD/9010877/AAAAAA.06a5c0e5e3c0977f/RA
+      X-App-Id:
+      - Custom.RestApi
+      X-App-Version:
+      - 13.0.336.64
+      Date:
+      - Fri, 24 May 2019 04:56:15 GMT
+      Content-Length:
+      - '0'
+      Set-Cookie:
+      - BIGipServer~FIFTEEN~US2P-DSSAPI_80=rd15o00000000000000000000ffff0af37bcfo80;
+        path=/
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Fri, 24 May 2019 04:56:16 GMT
+recorded_with: VCR 4.0.0
