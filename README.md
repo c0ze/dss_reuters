@@ -2,7 +2,7 @@
 
 A simple gem to extract info from DSS Reuters.
 
-[![CircleCI](https://circleci.com/gh/c0ze/dss_reuters.svg?style=svg)](https://circleci.com/gh/c0ze/dss_reuters)
+[![CI](https://github.com/c0ze/dss_reuters/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/c0ze/dss_reuters/actions/workflows/ci.yml)
 
 ## Installation
 
